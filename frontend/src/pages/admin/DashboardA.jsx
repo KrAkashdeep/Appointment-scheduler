@@ -73,7 +73,7 @@ function DashboardA() {
         {/* Main Content */}
         <div className="flex-1 p-8">
           <h1 className="text-3xl font-bold bg-white p-6 rounded-xl shadow-sm text-gray-800 mb-8">
-            Dashboard 
+            Dashboard
           </h1>
 
           {/* Stats Cards */}

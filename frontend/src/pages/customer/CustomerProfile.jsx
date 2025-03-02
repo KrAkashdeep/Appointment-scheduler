@@ -8,11 +8,10 @@ function CustomerProfile() {
   const [activeTab, setActiveTab] = useState("profile");
   const [profileImage, setProfileImage] = useState(null);
   const [userData, setUserData] = useState({
-    name: "John Doe",
-    email: "john@example.com",
+    name: "akash",
+    email: "akash@example.com",
     phone: "+1 234 567 890",
-    address: "123 Main St, City",
-    password: "",
+    address: "banglore",
   });
 
   const appointments = [

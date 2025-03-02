@@ -5,7 +5,7 @@ function Navbar() {
 
   return (
     <div className="flex justify-center pt-5 position-sticky top-0 z-10">
-      <div className=" flex justify-between align-middle bg-gray-200 w-350 rounded-lg backdrop-blur-md">
+      <div className=" flex justify-between align-middle bg-gray-100 w-350 rounded-lg backdrop-blur-md">
         <div className="p-3">Logo</div>
         <div>
           <ul className="flex space-x-4 justify-end p-3">
