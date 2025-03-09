@@ -11,6 +11,7 @@ function DashboardC() {
     {
       id: 1,
       name: "General Checkup",
+      doctor: "Dr. John Doe",
       description: "Routine health examination",
       price: 100,
       duration: "30 mins",
@@ -18,6 +19,7 @@ function DashboardC() {
     {
       id: 2,
       name: "Dental Care",
+      doctor: "Dr. Julia Smith",
       description: "Teeth cleaning and examination",
       price: 150,
       duration: "45 mins",
@@ -25,6 +27,7 @@ function DashboardC() {
     {
       id: 3,
       name: "Eye Exam",
+      doctor: "Dr. Mark Davis",
       description: "Complete vision assessment",
       price: 120,
       duration: "40 mins",
@@ -79,6 +82,8 @@ function DashboardC() {
             >
               <h3 className="text-xl font-semibold mb-2">{service.name}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
+              <p className="text-gray-600 mb-4">{service.doctor}</p>
+
               <div className="flex justify-between text-sm text-gray-500">
                 <span>${service.price}</span>
                 <span>{service.duration}</span>

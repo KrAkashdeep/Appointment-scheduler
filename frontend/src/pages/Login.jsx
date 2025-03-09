@@ -1,84 +1,125 @@
-// import React from 'react'
-
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 
 function Login() {
   const navigate = useNavigate();
+  const [showCustomerLogin, setShowCustomerLogin] = useState(true);
+
+  const toggleLoginSection = () => {
+    setShowCustomerLogin(!showCustomerLogin);
+  };
+
   return (
-    <>
-      <div className="flex justify-center flex-col items-center">
-        <h1 className="flex justify-center pt-5 position-sticky top-0 z-10 text-4xl">
-          Login
-        </h1>
-        <div className="main w-300  mt-14 h-120 flex ">
-          {/* Left side for customer login */}
-          <div className="left border-1 bg-gray-50 rounded-2xl w-150 flex flex-col justify-center items-center">
-            <h1 className="text-2xl ">Login for customer</h1>
-            <p className="text-sm mb-8 text-gray-500">
-              Normal User who come for services
-            </p>
-            <form className="flex flex-col justify-center items-center">
-              <input
-                type="text"
-                placeholder="Username"
-                className="mb-2 border-1 px-2 w-65 rounded-2xl py-2"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="mb-2 border-1 px-2 w-65 rounded-2xl py-2"
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="mb-2 border-1 px-2 w-65 rounded-2xl py-2"
-              />
-              <button
-                onClick={() => {
-                  navigate("/customer");
-                }}
-                className="bg-blue-500 text-white p-2 px-4 cursor-pointer rounded-md"
-              >
-                Login
-              </button>
-            </form>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
+        <div className="space-y-4">
+          <div className="flex justify-center space-x-4 mb-6">
+            <button
+              onClick={toggleLoginSection}
+              className={`px-4 py-2 rounded-lg ${
+                showCustomerLogin
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              Customer Login
+            </button>
+            <button
+              onClick={toggleLoginSection}
+              className={`px-4 py-2 rounded-lg ${
+                !showCustomerLogin
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              Admin Login
+            </button>
           </div>
 
-          {/* Right side for admin login */}
-          <div className="right bg-gray-50 w-150 border-1 rounded-2xl ml-2 flex flex-col justify-center items-center">
-            <h1 className="text-2xl ">Login for Administraion</h1>
-            <p className="text-sm mb-8 text-gray-500">
-              For Those who provide services
-            </p>
-            <form className="flex flex-col justify-center items-center">
-              <input
-                type="text"
-                placeholder="Username"
-                className="mb-2 border-1 px-2 w-65 rounded-2xl py-2"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="mb-2 border-1 px-2 w-65 rounded-2xl py-2"
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="mb-2 border-1 px-2 w-65 rounded-2xl py-2"
-              />
-              <button
-                onClick={() => {
-                  navigate("/admin");
-                }}
-                className="bg-blue-500 text-white p-2 px-4 cursor-pointer rounded-md"
-              >
-                Login
-              </button>
-            </form>
-          </div>
+          {showCustomerLogin ? (
+            <div className="border p-6 rounded-lg shadow-md">
+              <h2 className="text-xl font-semibold mb-4">Login for Customer</h2>
+              <form className="space-y-4">
+                <div className="relative">
+                  <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="relative">
+                  <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="relative">
+                  <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    navigate("/customer");
+                  }}
+                  className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          ) : (
+            <div className="border p-6 rounded-lg shadow-md">
+              <h2 className="text-xl font-semibold mb-4">
+                Login for Administration
+              </h2>
+              <form className="space-y-4">
+                <div className="relative">
+                  <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="relative">
+                  <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="relative">
+                  <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    navigate("/admin");
+                  }}
+                  className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
